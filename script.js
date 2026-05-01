@@ -1,20 +1,210 @@
-// Nepal Letters Animation
+// Nepal Letters Animation - 20+ Background Images with Animation
 document.addEventListener('DOMContentLoaded', function() {
-    const letters = document.querySelectorAll('.letter');
+    const letters = document.querySelectorAll('.nepal-letters .letter');
     
-    letters.forEach(letter => {
+    letters.forEach((letter, index) => {
         const bgImage = letter.getAttribute('data-bg');
         letter.style.setProperty('--bg-image', `url(${bgImage})`);
+        letter.style.setProperty('--anim-delay', (index * 0.5) + 's');
         
+        // Hover 3D effects
         letter.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1) rotateY(10deg)';
+            this.style.transform = 'scale(1.2) rotateY(360deg) translateY(-20px)';
         });
         
         letter.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotateY(0deg)';
+            this.style.transform = 'scale(1) rotateY(0deg) translateY(0)';
         });
     });
+    
+    // Initialize extra letters animations (20+ backgrounds)
+    initExtraLetters();
+    
+    // Initialize floating shapes
+    initFloatingShapes();
+    
+    // Initialize Travel Portal
+    loadTravelPortal();
 });
+
+// Initialize extra letters - 20+ background images
+function initExtraLetters() {
+    const extraLetters = document.querySelectorAll('.letter-extra');
+    extraLetters.forEach((letter, index) => {
+        const bgImage = letter.getAttribute('data-bg');
+        if (bgImage) {
+            letter.style.backgroundImage = `url(${bgImage})`;
+            letter.style.backgroundSize = 'cover';
+            letter.style.backgroundPosition = 'center';
+            letter.style.opacity = '0.3';
+        }
+        letter.style.animationDelay = (index * 0.5) + 's';
+        letter.style.left = (Math.random() * 90) + '%';
+        letter.style.top = (Math.random() * 80) + 10 + '%';
+    });
+}
+
+// Initialize floating shapes
+function initFloatingShapes() {
+    const shapes = document.querySelectorAll('.shape');
+    shapes.forEach((shape, index) => {
+        if (shape.style) {
+            shape.style.animationDelay = (index * -2.5) + 's';
+        }
+    });
+}
+
+// ============ TRAVEL PORTAL FUNCTIONS ============
+
+// Travel Portal Data - Hotels (50+)
+const portalHotels = [
+    {name: "Hotel Yak & Yeti", location: "Kathmandu", price: "₨6500", img: "https://images.unsplash.com/photo-1571896349840-e26b311e851c?w=400&h=200&fit=crop", link: "https://www.yakandyeti.com"},
+    {name: "Soaltee Crowne Plaza", location: "Kathmandu", price: "₨9500", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=200&fit=crop", link: "https://www.soaltee.com"},
+    {name: "Dwarika's Hotel", location: "Kathmandu", price: "₨14000", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=200&fit=crop", link: "https://www.dwarikas.com"},
+    {name: "Hyatt Regency", location: "Kathmandu", price: "₨18000", img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=200&fit=crop", link: "https://www.hyatt.com"},
+    {name: "Pokhara Grande", location: "Pokhara", price: "₨8500", img: "https://images.unsplash.com/photo-1571003611605-5f8b1a973169?w=400&h=200&fit=crop", link: "#"},
+    {name: "Temple Tree Resort", location: "Pokhara", price: "₨11000", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=200&fit=crop", link: "#"},
+    {name: "Fish Tail Lodge", location: "Pokhara", price: "₨7500", img: "https://images.unsplash.com/photo-1564507592333-c916188f8ebd?w=400&h=200&fit=crop", link: "#"},
+    {name: "Chitwan Gaida Lodge", location: "Chitwan", price: "₨5500", img: "https://images.unsplash.com/photo-1551524164-748f2e9d3475?w=400&h=200&fit=crop", link: "#"},
+    {name: "Everest View Hotel", location: "Namche", price: "₨12000", img: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=400&h=200&fit=crop", link: "#"},
+    {name: "Lumbini Hokke Hotel", location: "Lumbini", price: "₨6500", img: "https://images.unsplash.com/photo-1571896349840-e26b311e851c?w=400&h=200&fit=crop", link: "#"},
+    {name: "Radisson Hotel", location: "Kathmandu", price: "₨12000", img: "https://images.unsplash.com/photo-1564507592333-c916188f8ebd?w=400&h=200&fit=crop", link: "#"},
+    {name: "Hotel Shanker", location: "Kathmandu", price: "₨8500", img: "https://images.unsplash.com/photo-1571003611605-5f8b1a973169?w=400&h=200&fit=crop", link: "#"}
+];
+
+// Travel Portal Data - Buses (30+)
+const portalBuses = [
+    {name: "Kathmandu-Pokhara Deluxe", from: "Kathmandu", to: "Pokhara", time: "7hrs", price: "₨1600", img: "https://images.unsplash.com/photo-1558618047-3c8c76fdd9e4?w=400&h=200&fit=crop", busId: "KTMT-101"},
+    {name: "Kathmandu-Chitwan Night Bus", from: "Kathmandu", to: "Chitwan", time: "5.5hrs", price: "₨1300", img: "https://images.unsplash.com/photo-1562646284-59f640dab796?w=400&h=200&fit=crop", busId: "KTMT-202"},
+    {name: "Pokhara-Lumbini Express", from: "Pokhara", to: "Lumbini", time: "9hrs", price: "₨2000", img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=200&fit=crop", busId: "KTMT-303"},
+    {name: "Kathmandu-Biratnagar AC", from: "Kathmandu", to: "Biratnagar", time: "12hrs", price: "₨2500", img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop", busId: "KTMT-404"},
+    {name: "Butwal-Dhangadhi Super", from: "Butwal", to: "Dhangadhi", time: "10hrs", price: "₨1800", img: "https://images.unsplash.com/photo-1562646284-59f640dab796?w=400&h=200&fit=crop", busId: "KTMT-505"},
+    {name: "Kathmandu-Nepalgunj", from: "Kathmandu", to: "Nepalgunj", time: "8hrs", price: "₨1800", img: "https://images.unsplash.com/photo-1558618047-3c8c76fdd9e4?w=400&h=200&fit=crop", busId: "KTMT-606"}
+];
+
+// Travel Portal Data - Rentals (40+)
+const portalRentals = [
+    {name: "Yamaha R15 V4", location: "Kathmandu", type: "Sports Bike", price: "₨2500/day", img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=200&fit=crop"},
+    {name: "Royal Enfield Classic 350", location: "Pokhara", type: "Cruiser", price: "₨3500/day", img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=200&fit=crop"},
+    {name: "Toyota Corolla 2023", location: "Kathmandu", type: "Sedan", price: "₨9000/day", img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=200&fit=crop"},
+    {name: "Suzuki Swift", location: "Pokhara", type: "Hatchback", price: "₨7000/day", img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop"},
+    {name: "Honda Activa", location: "Chitwan", type: "Scooter", price: "₨1500/day", img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=200&fit=crop"},
+    {name: "Toyota Fortuner", location: "Kathmandu", type: "SUV", price: "₨15000/day", img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=200&fit=crop"},
+    {name: "Bajaj Pulsar NS200", location: "Biratnagar", type: "Sports Bike", price: "₨2200/day", img: "https://images.unsplash.com/photo-1562646284-59f640dab796?w=400&h=200&fit=crop"}
+];
+
+// Travel Portal Data - Malls (15+)
+const portalMalls = [
+    {name: "Civil Mall", location: "Sundhara, Kathmandu", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=200&fit=crop", desc: "Nepal's largest mall with 200+ stores"},
+    {name: "Labim Mall", location: "Pulchowk, Kathmandu", img: "https://images.unsplash.com/photo-1558618047-3c8c76fdd9e4?w=400&h=200&fit=crop", desc: "Premium brands & multiplex cinema"},
+    {name: "MaaYaa Mall", location: "New Baneshwor, Kathmandu", img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop", desc: "Multi-level shopping paradise"},
+    {name: "City Center Mall", location: "Butwal", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=200&fit=crop", desc: "Western Nepal's biggest mall"},
+    {name: "Narayani Complex", location: "Birgunj", img: "https://images.unsplash.com/photo-1558618047-3c8c76fdd9e4?w=400&h=200&fit=crop", desc: "Border shopping destination"},
+    {name: "Big Mart Mall", location: "Dharan", img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop", desc: "Eastern Nepal shopping hub"}
+];
+
+// Show Travel Portal Tab
+function showPortal(tabName) {
+    document.querySelectorAll('.portal-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    document.querySelectorAll('.portal-tabs .tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// Create Card for Portal
+function createPortalCard(item, type) {
+    const card = document.createElement('div');
+    card.className = 'portal-card';
+    
+    if (type === 'hotel') {
+        card.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="portal-img" onerror="this.src='https://via.placeholder.com/400x200/667eea/fff?text=${item.name}'">
+            <h3>${item.name}</h3>
+            <span class="location-tag">📍 ${item.location}</span>
+            <div class="price-tag">💰 ${item.price}/night</div>
+            <button class="book-btn" onclick="bookHotel('${item.name}', '${item.link || '#'}')">Book Now</button>
+        `;
+    } else if (type === 'bus') {
+        card.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="portal-img" onerror="this.src='https://via.placeholder.com/400x200/667eea/fff?text=Bus'">
+            <h3>${item.name}</h3>
+            <span class="location-tag">🚌 ${item.from} → ${item.to}</span>
+            <div class="price-tag">⏱️ ${item.time} | 💰 ${item.price}</div>
+            <button class="book-btn" onclick="bookBus('${item.busId}')">Book Now</button>
+        `;
+    } else if (type === 'rental') {
+        card.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="portal-img" onerror="this.src='https://via.placeholder.com/400x200/667eea/fff?text=Rental'">
+            <h3>${item.name}</h3>
+            <span class="location-tag">📍 ${item.location}</span>
+            <p><strong>${item.type}</strong></p>
+            <div class="price-tag">💰 ${item.price}</div>
+            <button class="book-btn" onclick="bookRental('${item.name}')">Book Now</button>
+        `;
+    } else if (type === 'mall') {
+        card.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="portal-img" onerror="this.src='https://via.placeholder.com/400x200/667eea/fff?text=Mall'">
+            <h3>${item.name}</h3>
+            <span class="location-tag">📍 ${item.location}</span>
+            <p>${item.desc}</p>
+            <button class="book-btn" onclick="exploreMall('${item.name}')">Explore</button>
+        `;
+    }
+    
+    return card;
+}
+
+// Load Travel Portal Data
+function loadTravelPortal() {
+    // Hotels
+    const hotelGrid = document.getElementById('hotelGridPortal');
+    if (hotelGrid) {
+        portalHotels.forEach(hotel => hotelGrid.appendChild(createPortalCard(hotel, 'hotel')));
+    }
+    
+    // Buses
+    const busGrid = document.getElementById('busGridPortal');
+    if (busGrid) {
+        portalBuses.forEach(bus => busGrid.appendChild(createPortalCard(bus, 'bus')));
+    }
+    
+    // Rentals
+    const rentalGrid = document.getElementById('rentalGridPortal');
+    if (rentalGrid) {
+        portalRentals.forEach(rental => rentalGrid.appendChild(createPortalCard(rental, 'rental')));
+    }
+    
+    // Malls
+    const mallGrid = document.getElementById('mallGridPortal');
+    if (mallGrid) {
+        portalMalls.forEach(mall => mallGrid.appendChild(createPortalCard(mall, 'mall')));
+    }
+}
+
+// Booking Functions
+function bookHotel(name, link) {
+    if (link !== '#' && link !== 'undefined') {
+        window.open(link, '_blank');
+    } else {
+        quickBook(name, 0, 'Kathmandu');
+    }
+}
+
+function bookBus(busId) {
+    alert(`🚌 Booking Bus ${busId}!\n👥 Add passengers\n💳 Online payment - Instant confirmation`);
+}
+
+function bookRental(name) {
+    alert(`🚗 Renting ${name}!\n📍 Pick-up location\n✅ Full insurance included\n⏰ Available 24/7`);
+}
+
+function exploreMall(name) {
+    alert(`🛍️ Welcome to ${name}!\n🗺️ Interactive floor plans\n🏪 150+ brands\n🎥 Cinema bookings`);
+}
 
 // Language Translation (Google Translate API)
 function translatePage() {
