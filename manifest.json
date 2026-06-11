@@ -1,0 +1,346 @@
+{
+  "project": "Nepal Tourism Website",
+  "version": "1.0.0",
+  "description": "Complete tourism portal for Nepal with hotels, buses, rentals, parks, and lakes",
+  "author": "alexmandal6868-maker",
+  "created": "2025-01-15",
+  "lastUpdated": "2026-06-11",
+  
+  "fileStructure": {
+    "core": {
+      "config.php": {
+        "type": "configuration",
+        "description": "Database setup, connection, table creation",
+        "dependencies": [],
+        "status": "active"
+      },
+      "router.php": {
+        "type": "routing",
+        "description": "Central routing system for all pages",
+        "dependencies": ["config.php"],
+        "status": "active"
+      }
+    },
+    
+    "pages": {
+      "index.php": {
+        "type": "main",
+        "description": "Homepage with animations, festivals, regions",
+        "dependencies": ["config.php", "style.css", "script.js", "header.php", "footer.php"],
+        "features": ["Nepal letters animation (20+ images)", "Festival showcase", "Hotel listings", "Travel portal"],
+        "status": "active"
+      },
+      "tour.php": {
+        "type": "content",
+        "description": "Travel portal - Hotels, Buses, Rentals, Malls",
+        "dependencies": ["config.php", "style.css"],
+        "features": ["50+ hotels", "30+ buses", "40+ rentals", "15+ malls", "Live tracking"],
+        "status": "active"
+      },
+      "aichatbook.php": {
+        "type": "content",
+        "description": "Lakes explorer with 15+ beautiful lakes",
+        "dependencies": ["style.css"],
+        "features": ["15+ lakes", "Real pictures", "Budget filtering", "Booking system"],
+        "status": "active"
+      },
+      "park.php": {
+        "type": "content",
+        "description": "National parks, rivers, hotels, buses, rentals, malls",
+        "dependencies": ["style.css"],
+        "features": ["20+ parks", "20+ rivers", "Complete explorer"],
+        "status": "active"
+      },
+      "index.html": {
+        "type": "static",
+        "description": "Static HTML version (fallback)",
+        "dependencies": ["style.css"],
+        "status": "deprecated"
+      }
+    },
+    
+    "authentication": {
+      "login.php": {
+        "type": "auth",
+        "description": "Admin login with CSRF protection",
+        "dependencies": ["config.php"],
+        "security": ["CSRF tokens", "Password hashing", "Session management"],
+        "status": "active"
+      }
+    },
+    
+    "dashboards": {
+      "dashboard.php": {
+        "type": "admin",
+        "description": "Admin dashboard with booking management",
+        "dependencies": ["config.php", "style.css"],
+        "features": ["Booking stats", "Recent bookings", "Revenue tracking", "Action buttons"],
+        "status": "active"
+      },
+      "user_dashboard.php": {
+        "type": "user",
+        "description": "User booking management dashboard",
+        "dependencies": ["../config.php", "style.css"],
+        "features": ["Booking history", "Statistics", "Quick actions"],
+        "status": "active"
+      },
+      "dasnboard.php": {
+        "type": "admin",
+        "description": "Duplicate/alternative dashboard (TYPO - rename needed)",
+        "dependencies": ["../config.php"],
+        "status": "duplicate"
+      }
+    },
+    
+    "user_management": {
+      "user_profile.php": {
+        "type": "user",
+        "description": "User profile management and updates",
+        "dependencies": ["../config.php"],
+        "features": ["Profile edit", "Password change", "Email update", "Form validation"],
+        "status": "active"
+      }
+    },
+    
+    "layout": {
+      "header.php": {
+        "type": "component",
+        "description": "Navigation header",
+        "dependencies": [],
+        "features": ["Navigation menu", "User session check", "Login button"],
+        "status": "active"
+      },
+      "footer.php": {
+        "type": "component",
+        "description": "Footer with links and newsletter",
+        "dependencies": [],
+        "features": ["Quick links", "Social media", "Newsletter signup"],
+        "status": "active"
+      }
+    },
+    
+    "styling": {
+      "style.css": {
+        "type": "stylesheet",
+        "description": "Main CSS file (800+ lines)",
+        "size": "29.7 KB",
+        "features": ["Responsive design", "Animations", "Glass morphism", "Premium styling"],
+        "status": "active"
+      }
+    },
+    
+    "javascript": {
+      "script.js": {
+        "type": "script",
+        "description": "Main JavaScript file (22+ KB)",
+        "size": "22.3 KB",
+        "features": ["GSAP animations", "Portal loading", "Filtering", "Booking modals"],
+        "status": "active"
+      },
+      "chatbot.js": {
+        "type": "script",
+        "description": "Chatbot messaging system",
+        "dependencies": ["script.js"],
+        "features": ["Message handling", "AI responses"],
+        "status": "active"
+      }
+    },
+    
+    "utilities": {
+      "generate_images.php": {
+        "type": "utility",
+        "description": "Image generation script",
+        "purpose": "Create placeholder images",
+        "status": "active"
+      },
+      "image_generator.php": {
+        "type": "utility",
+        "description": "Dynamic image generator",
+        "purpose": "Generate images via query parameters",
+        "status": "active"
+      },
+      "simple_test.php": {
+        "type": "utility",
+        "description": "Database connection test",
+        "purpose": "Test MySQL connection",
+        "status": "active"
+      },
+      "wheather.php": {
+        "type": "utility",
+        "description": "Weather API endpoint (TYPO: weather.php)",
+        "purpose": "Return JSON weather data",
+        "status": "active"
+      }
+    },
+    
+    "errors": {
+      "404.php": {
+        "type": "error",
+        "description": "404 error page",
+        "dependencies": ["style.css"],
+        "status": "active"
+      }
+    },
+    
+    "documentation": {
+      "README.md": {
+        "type": "docs",
+        "description": "Project overview",
+        "status": "active"
+      },
+      "TODO.md": {
+        "type": "docs",
+        "description": "Project status and completed tasks",
+        "status": "active"
+      }
+    }
+  },
+  
+  "connections": {
+    "global_dependencies": ["config.php", "style.css", "script.js"],
+    
+    "file_relationships": {
+      "index.php": {
+        "includes": ["config.php", "header.php", "footer.php"],
+        "requires": ["style.css", "script.js"],
+        "linked_from": ["index.html", "router.php"]
+      },
+      "tour.php": {
+        "requires": ["style.css"],
+        "data_source": "config.php via JS/AJAX"
+      },
+      "park.php": {
+        "requires": ["style.css"]
+      },
+      "aichatbook.php": {
+        "requires": ["style.css"]
+      },
+      "dashboard.php": {
+        "includes": ["config.php"],
+        "requires": ["style.css"],
+        "session": "required"
+      },
+      "user_dashboard.php": {
+        "includes": ["../config.php"],
+        "requires": ["style.css"],
+        "session": "required"
+      },
+      "user_profile.php": {
+        "includes": ["../config.php"],
+        "session": "required"
+      },
+      "login.php": {
+        "includes": ["config.php"],
+        "session": "required"
+      }
+    },
+    
+    "database_tables": {
+      "hotels": {
+        "description": "Hotel listings",
+        "used_by": ["index.php", "tour.php", "config.php"],
+        "fields": ["id", "name", "place", "price", "link", "image"]
+      },
+      "bookings": {
+        "description": "User bookings",
+        "used_by": ["dashboard.php", "user_dashboard.php", "index.php"],
+        "fields": ["id", "user_name", "place", "hotel", "date", "amount", "status"]
+      },
+      "users": {
+        "description": "User accounts",
+        "used_by": ["login.php", "user_profile.php"],
+        "fields": ["id", "username", "password", "email", "role"]
+      }
+    }
+  },
+  
+  "directories": {
+    "root": {
+      "files": ["index.php", "index.html", "config.php", "router.php", "tour.php", "aichatbook.php", "park.php", "404.php"],
+      "purpose": "Main PHP pages and static files"
+    },
+    "user": {
+      "files": ["user_dashboard.php", "user_profile.php"],
+      "purpose": "User-specific pages",
+      "note": "Should be in subdirectory"
+    },
+    "admin": {
+      "files": ["login.php", "dashboard.php"],
+      "purpose": "Admin pages",
+      "note": "Should be in subdirectory"
+    },
+    "assets": {
+      "files": ["style.css", "script.js", "chatbot.js"],
+      "purpose": "Frontend assets",
+      "note": "Should be in subdirectory"
+    },
+    "components": {
+      "files": ["header.php", "footer.php"],
+      "purpose": "Reusable components",
+      "note": "Should be in subdirectory"
+    }
+  },
+  
+  "issues_to_fix": [
+    {
+      "issue": "File naming typo",
+      "file": "dasnboard.php",
+      "fix": "Delete or rename to dashboard_backup.php",
+      "priority": "high"
+    },
+    {
+      "issue": "Weather API typo",
+      "file": "wheather.php",
+      "fix": "Rename to weather.php",
+      "priority": "low"
+    },
+    {
+      "issue": "Duplicate static file",
+      "file": "index.html",
+      "fix": "Remove - use index.php instead",
+      "priority": "low"
+    },
+    {
+      "issue": "Path issues in user pages",
+      "file": "user_dashboard.php, user_profile.php",
+      "fix": "Use relative paths '../config.php'",
+      "priority": "high"
+    },
+    {
+      "issue": "File organization",
+      "fix": "Create subdirectories: /admin, /user, /components, /assets",
+      "priority": "medium"
+    }
+  ],
+  
+  "features_implemented": {
+    "Frontend": [
+      "20+ background image animations",
+      "Responsive grid layouts",
+      "Real-time live tracking",
+      "Search functionality",
+      "Filter systems",
+      "Modal bookings",
+      "Language support (Google Translate)"
+    ],
+    "Backend": [
+      "MySQL database with auto table creation",
+      "Secure admin login with CSRF tokens",
+      "User session management",
+      "Booking management system",
+      "Admin dashboard with statistics"
+    ],
+    "Content": [
+      "50+ hotels",
+      "30+ buses",
+      "40+ rentals",
+      "15+ malls",
+      "20+ national parks",
+      "20+ rivers",
+      "15+ lakes"
+    ]
+  },
+  
+  "deployment_ready": true,
+  "notes": "Website is fully functional. Needs file reorganization into proper directory structure and minor fixes."
+}
