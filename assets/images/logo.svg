@@ -1,0 +1,175 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="512" cy="400" r="380" fill="#E8F4F8" stroke="#003366" stroke-width="12"/>
+  
+  <!-- Sky gradient -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB347;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sun -->
+  <circle cx="650" cy="180" r="60" fill="url(#sunGradient)"/>
+  
+  <!-- Mountains -->
+  <polygon points="700,350 850,150 950,350" fill="#8B7355" opacity="0.3"/>
+  <polygon points="650,350 780,100 900,350" fill="#A0826D" opacity="0.5"/>
+  <polygon points="500,350 650,80 800,350" fill="#FFFFFF" opacity="0.9"/>
+  <polygon points="400,350 550,120 700,350" fill="#D0D0D0" opacity="0.7"/>
+  
+  <!-- Pagoda -->
+  <g transform="translate(200, 280)">
+    <!-- Base -->
+    <rect x="0" y="80" width="120" height="20" fill="#8B4513"/>
+    <!-- First level -->
+    <polygon points="10,80 60,40 110,80" fill="#D4A574"/>
+    <rect x="10" y="70" width="100" height="15" fill="#8B4513"/>
+    <!-- Second level -->
+    <polygon points="20,70 60,35 100,70" fill="#E6C9A8"/>
+    <rect x="20" y="60" width="80" height="12" fill="#8B4513"/>
+    <!-- Third level -->
+    <polygon points="30,60 60,30 90,60" fill="#D4A574"/>
+    <rect x="30" y="50" width="60" height="12" fill="#8B4513"/>
+    <!-- Spire -->
+    <polygon points="55,50 60,5 65,50" fill="#FFD700"/>
+  </g>
+  
+  <!-- Stupa/Prayer flags -->
+  <circle cx="350" cy="320" r="25" fill="#FFFFFF" stroke="#8B4513" stroke-width="2"/>
+  <line x1="350" y1="300" x2="350" y2="220" stroke="#FFD700" stroke-width="3"/>
+  <polygon points="350,220 345,235 355,235" fill="#FFD700"/>
+  
+  <!-- Prayer flags -->
+  <line x1="250" y1="280" x2="450" y2="260" stroke="#DC143C" stroke-width="4" opacity="0.7"/>
+  <line x1="250" y1="285" x2="450" y2="265" stroke="#FFD700" stroke-width="4" opacity="0.7"/>
+  <line x1="250" y1="290" x2="450" y2="270" stroke="#0047AB" stroke-width="4" opacity="0.7"/>
+  <line x1="250" y1="295" x2="450" y2="275" stroke="#00A651" stroke-width="4" opacity="0.7"/>
+  
+  <!-- River -->
+  <path d="M 320 380 Q 380 400 420 420 Q 450 430 480 440" stroke="#4DA6FF" stroke-width="12" fill="none" opacity="0.8"/>
+  <path d="M 320 390 Q 380 410 420 430 Q 450 440 480 450" stroke="#87CEEB" stroke-width="8" fill="none" opacity="0.6"/>
+  
+  <!-- Bus -->
+  <g transform="translate(100, 380)">
+    <rect x="0" y="40" width="100" height="50" fill="#E8E8E8" stroke="#333" stroke-width="2" rx="5"/>
+    <rect x="10" y="20" width="80" height="25" fill="#87CEEB" stroke="#333" stroke-width="2" rx="3"/>
+    <circle cx="25" cy="95" r="8" fill="#333"/>
+    <circle cx="75" cy="95" r="8" fill="#333"/>
+    <text x="50" y="75" font-family="Arial" font-size="12" text-anchor="middle" fill="#0047AB" font-weight="bold">NEPAL</text>
+  </g>
+  
+  <!-- Wildlife - Elephant -->
+  <g transform="translate(550, 350)">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="35" ry="25" fill="#8B7355"/>
+    <!-- Head -->
+    <circle cx="-25" cy="-15" r="18" fill="#8B7355"/>
+    <!-- Trunk -->
+    <path d="M -28,-10 Q -40,-5 -42,10" stroke="#8B7355" stroke-width="6" fill="none"/>
+    <!-- Legs -->
+    <rect x="-20" y="20" width="8" height="20" fill="#8B7355"/>
+    <rect x="-5" y="20" width="8" height="20" fill="#8B7355"/>
+    <rect x="10" y="20" width="8" height="20" fill="#8B7355"/>
+    <rect x="25" y="20" width="8" height="20" fill="#8B7355"/>
+    <!-- Eye -->
+    <circle cx="-20" cy="-20" r="2" fill="black"/>
+  </g>
+  
+  <!-- Wildlife - Deer -->
+  <g transform="translate(650, 370)">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="20" ry="15" fill="#8B4513"/>
+    <!-- Head -->
+    <circle cx="15" cy="-10" r="10" fill="#8B4513"/>
+    <!-- Antlers -->
+    <line x1="15" y1="-20" x2="12" y2="-35" stroke="#8B4513" stroke-width="2"/>
+    <line x1="15" y1="-20" x2="18" y2="-35" stroke="#8B4513" stroke-width="2"/>
+    <!-- Legs -->
+    <line x1="-10" y1="10" x2="-10" y2="25" stroke="#8B4513" stroke-width="3"/>
+    <line x1="0" y1="12" x2="0" y2="27" stroke="#8B4513" stroke-width="3"/>
+    <line x1="10" y1="12" x2="10" y2="27" stroke="#8B4513" stroke-width="3"/>
+    <!-- Eye -->
+    <circle cx="20" cy="-12" r="1.5" fill="black"/>
+  </g>
+  
+  <!-- Airplane -->
+  <g transform="translate(750, 150)">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="30" ry="8" fill="white" stroke="#333" stroke-width="1"/>
+    <!-- Cockpit -->
+    <circle cx="-20" cy="0" r="5" fill="#87CEEB" stroke="#333" stroke-width="1"/>
+    <!-- Wings -->
+    <rect x="-10" y="-3" width="50" height="6" fill="white" stroke="#333" stroke-width="1"/>
+    <!-- Tail -->
+    <polygon points="30,0 35,-8 35,8" fill="white" stroke="#333" stroke-width="1"/>
+    <!-- Vapor trails -->
+    <line x1="-40" y1="-10" x2="-60" y2="-15" stroke="white" stroke-width="2" opacity="0.6"/>
+    <line x1="-35" y1="-5" x2="-55" y2="-10" stroke="white" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- Travelers group -->
+  <g transform="translate(120, 300)">
+    <!-- Person 1 (Red) -->
+    <circle cx="0" cy="-15" r="4" fill="#C41E3A"/>
+    <rect x="-3" y="-10" width="6" height="12" fill="#C41E3A"/>
+    <rect x="-5" y="-8" width="3" height="8" fill="#8B7355"/>
+    <rect x="2" y="-8" width="3" height="8" fill="#8B7355"/>
+    
+    <!-- Person 2 (Blue) -->
+    <circle cx="15" cy="-18" r="4" fill="#0047AB"/>
+    <rect x="12" y="-13" width="6" height="13" fill="#0047AB"/>
+    <rect x="10" y="-11" width="3" height="9" fill="#8B7355"/>
+    <rect x="17" y="-11" width="3" height="9" fill="#8B7355"/>
+    
+    <!-- Person 3 (Orange) -->
+    <circle cx="30" cy="-16" r="4" fill="#FF8C00"/>
+    <rect x="27" y="-11" width="6" height="12" fill="#FF8C00"/>
+    <rect x="25" y="-9" width="3" height="8" fill="#8B7355"/>
+    <rect x="32" y="-9" width="3" height="8" fill="#8B7355"/>
+    
+    <!-- Backpacks -->
+    <rect x="-2" y="2" width="4" height="6" fill="#333"/>
+    <rect x="13" y="0" width="4" height="7" fill="#333"/>
+    <rect x="28" y="1" width="4" height="6" fill="#333"/>
+  </g>
+  
+  <!-- Nepal Flag in corner -->
+  <g transform="translate(80, 100)">
+    <!-- Red part -->
+    <polygon points="0,20 20,0 30,10 10,30" fill="#C41E3A"/>
+    <!-- Blue border -->
+    <path d="M 0,20 L 20,0 L 30,10 L 10,30 Z" fill="none" stroke="#003366" stroke-width="1"/>
+    <!-- Moon (white) -->
+    <circle cx="15" cy="12" r="4" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Text: NEPAL -->
+  <text x="512" y="620" font-family="Arial, sans-serif" font-size="120" font-weight="bold" text-anchor="middle" fill="#003366">NEPAL</text>
+  
+  <!-- Mountain icon in text -->
+  <polygon points="470,600 490,570 510,600" fill="#0047AB" opacity="0.8"/>
+  <polygon points="520,600 545,560 570,600" fill="#0047AB" opacity="0.6"/>
+  
+  <!-- Tagline -->
+  <text x="512" y="720" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#00A651" font-weight="bold">TOUR &amp; TRAVEL</text>
+  
+  <!-- Bottom banner -->
+  <rect x="150" y="750" width="724" height="60" fill="#003366" rx="10"/>
+  <text x="512" y="790" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white" font-weight="bold">EXPLORE NEPAL, EXPERIENCE THE MAGIC</text>
+  
+  <!-- Decorative bottom elements -->
+  <polygon points="250,745 270,765 230,765" fill="#C41E3A"/>
+  <polygon points="420,745 435,765 405,765" fill="#0047AB"/>
+  <polygon points="590,745 605,765 575,765" fill="#00A651"/>
+  <polygon points="754,745 774,765 734,765" fill="#C41E3A"/>
+  
+  <!-- Corner decorations -->
+  <path d="M 150,750 Q 140,745 130,750" stroke="#00A651" stroke-width="3" fill="none"/>
+  <path d="M 874,750 Q 884,745 894,750" stroke="#00A651" stroke-width="3" fill="none"/>
+</svg>
